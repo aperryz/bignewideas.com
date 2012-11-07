@@ -1,9 +1,0 @@
-Title: Big New Ideas
-----
-Author: Max Slavkin
-----
-Description: Big New Ideas, a design consultancy.
-----
-Keywords: design, consultants, awesome
-----
-Copyright: © 2008-(date: Year) (link: http://bignewideas.com text: Big New Ideas)
