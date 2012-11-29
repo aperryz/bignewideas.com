@@ -1,7 +1,12 @@
-<nav class="menu">
+<nav>
+  <h1><a href="<?php echo url() ?>"><img src="<?= url('assets/img/logo.png') ?>" alt="<?= html($site->title()) ?>" /></a></h1>
   <ul>
-    <?php foreach($pages->visible() AS $p): ?>
-    <li><a<?php echo ($p->isOpen()) ? ' class="active"' : '' ?> href="<?php echo $p->url() ?>"><?php echo html($p->title()) ?></a></li>
-    <?php endforeach ?>
+    <li>Work</li>
+    <li>Services</li>
+    <li>About</li>
+    <li>News</li>
+    <li class="facebook">Like</li>
+    <li class="twitter">Follow</li>
+    <li class="mailchimp">Email Updates</li>
   </ul>
 </nav>
