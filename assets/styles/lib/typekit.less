@@ -1,0 +1,23 @@
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading p,
+.wf-loading li {
+    opacity: 0;
+}
+
+.ie.wf-loading h1,
+.ie.wf-loading h2,
+.ie.wf-loading h3,
+.ie.wf-loading p,
+.ie.wf-loading li {
+    visibility: hidden; /* Old IE */
+}
+
+h1, h2, h3, p, li {
+    opacity: 1;
+    visibility: visible; /* Old IE */
+    -webkit-transition: opacity 0.24s ease-in-out;
+       -moz-transition: opacity 0.24s ease-in-out;
+            transition: opacity 0.24s ease-in-out;
+}
