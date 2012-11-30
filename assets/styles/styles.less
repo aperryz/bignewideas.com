@@ -19,9 +19,6 @@
     .default-transition();
     .clearfix();
 
-    &:hover {
-        background: rgba(0,0,0,.9);
-    }
 }
 
 * {
@@ -38,7 +35,7 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 26px;
-    background: url('../img/background.jpg');
+    background: url('../img/diagonal_waves.png');
     color: white;
     width: 755px;
     padding-bottom: 250px;
@@ -60,16 +57,17 @@ nav {
         width: 100%;
         span {
             background-color: rgba(0,0,0,.7);
-            padding: 5px 15px 5px 5px;
+            padding: 4px 3px;
+            display:inline-block;
             color: white;
-            display: inline-block;
-            .transition(background-color 0.1s linear);
-            .transition(width 0.2s ease);
+            min-width: 25%;
+            .box-sizing(border-box);
+            .default-transition();
+            .transition(width 0.24s ease-in-out);
         }
         &:hover {
             span {
-                background-color: black;
-                display: inline-block;
+                background-color: rgba(0,0,0,0.9);
                 width: 100%;
             }
         }

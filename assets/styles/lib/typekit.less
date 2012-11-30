@@ -1,9 +1,7 @@
-.wf-loading h1,
-.wf-loading h2,
-.wf-loading h3,
-.wf-loading p,
-.wf-loading li {
+.wf-loading {
+  h1, h2, h3, h4, p, li, section {
     opacity: 0;
+  }
 }
 
 .ie.wf-loading h1,
@@ -14,10 +12,26 @@
     visibility: hidden; /* Old IE */
 }
 
-h1, h2, h3, p, li {
+h1, h2, h3, p, li, section {
     opacity: 1;
     visibility: visible; /* Old IE */
     -webkit-transition: opacity 0.24s ease-in-out;
        -moz-transition: opacity 0.24s ease-in-out;
             transition: opacity 0.24s ease-in-out;
+}
+
+.stickem-container {
+  position: relative;
+}
+
+.stickit {
+  margin-left: 660px;
+  position: fixed;
+  top: 0;
+}
+
+.stickit-end {
+  bottom: 0;
+  position: absolute;
+  right: 0;
 }
