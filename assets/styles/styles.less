@@ -67,13 +67,20 @@ nav {
             .box-sizing(border-box);
             .default-transition();
             .transition(width 0.24s ease-in-out);
-        }
-        &:hover {
-            span {
-                background-color: rgba(0,0,0,0.9);
-                width: 100%;
+            &.facebook {
+                background-color: rgba(0,0,255,.5);
+            }
+            &.twitter {
+                background-color: rgba(255,0,255,.5);
+            }
+            &.mailchimp {
+                background-color: rgba(255,255,255,.5);
             }
         }
+    }
+    a:hover span {
+        background-color: rgba(0,0,0,0.9);
+        width: 100%;
     }
     .clearfix();
 }

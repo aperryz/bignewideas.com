@@ -5,8 +5,8 @@
     <a href="#services"><li><span>Services</span></li></a>
     <a href="#about"><li><span>About</span></li></a>
     <a href="#news"><li><span>News</span></li></a>
-    <li class="facebook">Like</li>
-    <li class="twitter">Follow</li>
-    <li class="mailchimp">Email Updates</li>
+    <li><span class="facebook">Like</span></li>
+    <li><span class="twitter">Follow</span></li>
+    <li><span class="mailchimp">Email Updates</span></li>
   </ul>
 </nav>
