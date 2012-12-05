@@ -10,11 +10,22 @@
   $contact     = $pages->find('contact');
 ?>
 
-<section>
-  <h1><?= $intro->title();?></h1>
+<section class="intro">
+  <h1 id="intro-title"><?= $intro->title();?></h1>
   <p><?= $intro->text();?></p>
+  <?php
+    if ($intro->hasImages()) {
+      $images = $intro->images();
+      foreach ($images as $image) {
+    ?>
+      <p class="client-image"><a href="#clients"><img src="<?= $image->url();?>"> (See all clients)</a></p>
+  <?php
+      }
+    }
+  ?>
 </section>
 
+<a name="work"></a>
 <section>
   <ol class="thumb-grid group">
     <?php
@@ -33,10 +44,13 @@
   </ol>
 </section>
 
+<a name="services"></a>
 <section>
+  <canvas id="canvas" width="701" height="390"></canvas>
   <p><?= $services->text();?></p>
 </section>
 
+<a name="about"></a>
 <section class="studio">
 
   <ul class="persons">
@@ -66,13 +80,18 @@
     <p><?= $studio->section_2_text();?></p>
   </article>
 
+  <a name="clients"></a>
   <article class="column-1">
     <h1><?= $studio->section_3();?></h1>
     <p><?= $studio->section_3_text();?></p>
   </article>
 
+    <img src="http://placehold.it/337x300" style="margin-right: 14px;">
+    <img src="http://placehold.it/337x300">
+
 </section>
 
+<a name="news"></a>
 <section class="contact">
   <h1><?= $contact->title();?></h1>
   <ul>
