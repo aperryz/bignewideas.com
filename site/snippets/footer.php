@@ -1,10 +1,11 @@
   <footer>
-    <?php echo kirbytext($site->copyright()) ?>
+    <?= kirbytext($site->copyright()) ?>
   </footer>
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-  <?php echo js('assets/js/plugins.js') ?>
-  <?php echo js('assets/js/scripts.js') ?>
+  <?= js('assets/js/jquery-1.8.3.min.js'); ?>
+  <?= js('assets/js/plugins.js'); ?>
+  <script type="text/javascript" src="http://dev.jeffreylo.cc/illusions/illusions.js"></script>
+  <?= js('assets/js/scripts.js'); ?>
 
 </body>
 

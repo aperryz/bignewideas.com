@@ -1,5 +1,5 @@
 .wf-loading {
-  h1, h2, h3, h4, p, li, section {
+  h1, h2, h3, h4, p, li, section, header, footer, nav {
     opacity: 0;
   }
 }
@@ -35,3 +35,36 @@ h1, h2, h3, p, li, section {
   position: absolute;
   right: 0;
 }
+
+            .slider { margin: 0; padding: 0; list-style: none; position: relative; }
+
+                .slidewrap {
+                    position: relative;
+                    .slidecontrols {
+                        height: 0;
+                        z-index: 1000;
+                    }
+                    .carousel-next, .carousel-prev {
+                        position: absolute;
+                        z-index: 1000;
+                        top: 50%;
+                        color: black;
+                    }
+                    .carousel-next {
+                        right: 1%;
+                    }
+                    .carousel-prev {
+                        left: 1%;
+                    }
+
+                    .carousel-disabled {
+                        display: none;
+                    }
+                }
+
+            .carousel-tabs { clear: both; }
+            .carousel-active-tab { color: red; }
+            .carousel-disabled,
+            .mr-rotato-disabled { color: #aaa; }
+
+            #intro-title { display: block; width: 100%; }

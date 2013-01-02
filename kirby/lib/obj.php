@@ -8,10 +8,10 @@ if(!defined('KIRBY')) die('Direct access is not allowed');
  *
  * Almost every other object in Kirby is based
  * on this class and their methods.
- * 
- * It implements magic getters, setters, 
+ *
+ * It implements magic getters, setters,
  * helper methods and a custom iterator.
- * 
+ *
  * @package Kirby CMS
  */
 class obj implements Iterator {
@@ -21,15 +21,15 @@ class obj implements Iterator {
   function __construct($array=array()) {
     $this->_ = $array;
   }
-    
+
   function __set($n, $v) {
     $this->_[$n] = $v;
   }
-  
+
   function __get($n) {
     return a::get($this->_, $n);
   }
-  
+
   function __call($n, $args) {
     return a::get($this->_, $n);
   }
@@ -66,7 +66,7 @@ class obj implements Iterator {
   }
 
   function find() {
-    
+
     $args    = func_get_args();
     $key     = @$args[0];
     $default = @$args[1];
@@ -74,17 +74,17 @@ class obj implements Iterator {
     if(!$key) return $this->_;
     return a::get($this->_, $key, $default);
   }
-      
+
   function count() {
     return count($this->_);
-  }  
+  }
 
   function first() {
-    return a::first($this->_); 
+    return a::first($this->_);
   }
 
   function last() {
-    return a::last($this->_); 
+    return a::last($this->_);
   }
 
   function indexOf($needle) {
@@ -96,9 +96,14 @@ class obj implements Iterator {
     return $this;
   }
 
+  function reverse() {
+    $this->_ = array_reverse($this->_);
+    return $this;
+  }
+
   function toArray() {
     return $this->_;
   }
-    
+
 }
 

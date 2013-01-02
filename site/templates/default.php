@@ -1,1 +1,1 @@
-<?php go(url()) ?>
+<?php go(url()); ?>

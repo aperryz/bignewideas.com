@@ -3,6 +3,8 @@
 # rewrite rules
 <IfModule mod_rewrite.c>
 
+Options +FollowSymLinks
+
 # enable awesome urls. i.e.: 
 # http://yourdomain.com/about-us/team
 RewriteEngine on

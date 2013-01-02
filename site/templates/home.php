@@ -4,39 +4,55 @@
   $content     = new stdClass();
   $intro       = $pages->find('introduction');
   $projects    = $pages->find('work');
-  $subprojects = $projects->children();
+  $subprojects = $projects->children()->visible();
   $services    = $pages->find('services');
   $studio      = $pages->find('studio');
   $contact     = $pages->find('contact');
 ?>
 
-<section class="intro">
-  <h1 id="intro-title"><?= $intro->title();?></h1>
+<section id="intro" class="intro">
+
+  <div style="width: 100%;">
+    <h1 id="intro-title"><?= $intro->title();?></h1>
+  </div>
+
   <p><?= $intro->text();?></p>
+  <p class="client-image"><a href="#clients">
   <?php
     if ($intro->hasImages()) {
       $images = $intro->images();
       foreach ($images as $image) {
     ?>
-      <p class="client-image"><a href="#clients"><img src="<?= $image->url();?>"> (See all clients)</a></p>
+      <img src="<?= $image->url();?>">
   <?php
       }
     }
   ?>
+  (See all clients)</a></p>
 </section>
 
 <a name="work"></a>
-<section>
+<section id="work">
   <ol class="thumb-grid group">
     <?php
-      foreach($subprojects->visible() as $project) :
-        if ($project->hasImages()) {
+      foreach($subprojects as $project) :
+        if ($project->visible()) {
           ?>
-          <?php
-        } else {
-          ?>
-            <li><a href="#"><img src="http://placehold.it/221x221" alt="thumbnail" /></a><p><?= $project->title();?></li>
-            <li><a href="#"><img src="http://placehold.it/221x221" alt="thumbnail" /></a><p><?= $project->title();?></li>
+            <?php $mouseover = $project->children()->find('mouseover'); ?>
+            <?php if ($mouseover) { ?>
+            <li>
+              <a href="<?= $project->url();?>">
+                <ul class="slides">
+                  <?php foreach ($mouseover->images()->reverse() as $image) { ?>
+                  <li><img src="<?= $image->url();?>" alt="<?= $image->title();?>" /></li>
+                  <?php } ?>
+                </ul>
+              </a>
+              <p><a href="<?= $project->url();?>"><?= $project->title();?></a></p>
+            </li>
+            <?php } else { ?>
+            <li><a href="<?= $project->url();?>"><img src="holder.js/221x221" alt="thumbnail" /></a><p><?= $project->title();?></li>
+            <?php } ?>
           <?php
         }
       endforeach;
@@ -45,13 +61,13 @@
 </section>
 
 <a name="services"></a>
-<section>
-  <canvas id="canvas" width="701" height="390"></canvas>
+<section id="services">
+  <canvas id="canvas" width="701" height="525"></canvas>
   <p><?= $services->text();?></p>
 </section>
 
 <a name="about"></a>
-<section class="studio">
+<section id="studio" class="studio">
 
   <ul class="persons">
     <?php
@@ -71,28 +87,30 @@
     ?>
   </ul>
 
+  <?php $studio_subpages = $studio->children();?>
+
   <article class="column-2">
-    <h1><?= $studio->section_1();?></h1>
-    <p><?= $studio->section_1_text();?></p>
+    <h1><?= $studio_subpages->find('collaborators')->title();?></h1>
+    <p><?= $studio_subpages->find('collaborators')->text();?></p>
   </article>
   <article class="column-2">
-    <h1><?= $studio->section_2();?></h1>
-    <p><?= $studio->section_2_text();?></p>
+    <h1><?= $studio_subpages->find('compatriots')->title();?></h1>
+    <p><?= $studio_subpages->find('compatriots')->text();?></p>
   </article>
 
   <a name="clients"></a>
   <article class="column-1">
-    <h1><?= $studio->section_3();?></h1>
-    <p><?= $studio->section_3_text();?></p>
+    <h1><?= $studio_subpages->find('clients')->title();?></h1>
+    <p><?= $studio_subpages->find('clients')->text();?></p>
   </article>
 
-    <img src="http://placehold.it/337x300" style="margin-right: 14px;">
-    <img src="http://placehold.it/337x300">
+    <img src="holder.js/344x300" style="margin-right: 11px;">
+    <img src="holder.js/344x300">
 
 </section>
 
-<a name="news"></a>
-<section class="contact">
+<a name="contact"></a>
+<section id="contact" class="contact">
   <h1><?= $contact->title();?></h1>
   <ul>
     <li><?= $contact->phone_number();?></li>
