@@ -21,4 +21,4 @@
   </script>
 </head>
 
-<body id="<?= strtolower($page->title()) ?>">
+<body id="<?php if ($page->parent()) { echo strtolower($page->parent()->title()); } else { echo strtolower($page->title()); } ?>">
